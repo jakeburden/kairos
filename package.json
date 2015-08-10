@@ -1,0 +1,37 @@
+{
+  "name": "kairos",
+  "version": "1.0.0",
+  "description": "employee timeclock",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node --harmony_arrow_functions index.js",
+    "build": "npm run build:views && npm run build:styles && npm run build:js",
+    "build:views": "templatizer -d ./resources/jade_views -o views.js",
+    "build:styles": "stylus -u autoprefixer-stylus -c --sourcemap-inline ./resources/stylus/app.styl --out ./static/styles/app.css",
+    "build:js": "browserify static/scripts/app.js -t babelify > static/scripts/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob Burden Jacob.JW.Burden@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "accountdown": "^4.1.0",
+    "accountdown-basic": "^1.1.0",
+    "body": "^5.1.0",
+    "bytewise": "^1.1.0",
+    "cookie": "^0.1.3",
+    "ecstatic": "^0.8.0",
+    "has": "^1.0.1",
+    "level": "^1.3.0",
+    "leveldown": "level/leveldown#iojs-v3-nan-next",
+    "levelup": "^1.2.1",
+    "patterns": "^1.0.2",
+    "whatwg-fetch": "^0.9.0"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.7.1",
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.1",
+    "stylus": "^0.52.0",
+    "templatizer": "^1.5.2"
+  }
+}
